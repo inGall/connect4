@@ -1,0 +1,116 @@
+.bg {
+  background: lightcyan;
+}
+
+.guide {
+  display: inline-block;
+  text-align: center;
+  vertical-align: 150px;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.heading {
+  font-size: 50px;
+  font-family: fantasy;
+}
+
+.subheading {
+  font-size: 30px; 
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#status {
+  color: red;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.grid {
+  display: inline-block;
+  padding: 50px;
+}
+
+.tableGrid {
+	width: 600px;
+	margin: 0px auto;
+	table-layout: fixed;
+  overflow: hidden;
+
+}
+
+table td {
+  height: 50px;
+  border: 5px solid black;
+  background-color: lightcoral;
+  border-radius: 30px;
+}
+
+.buttonz {
+	width: 100%;
+  height: 50px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 30px;
+  border:none;
+	background-color: yellow;
+}
+
+.resetbutton {
+	font-family: fantasy;
+  font-size: 20px;
+  color: blueviolet;
+	margin:auto;
+  display:block;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+ .overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;                            
+  z-index: 1;                                
+  background-color: rgba(0, 0, 0, 0.9); 
+  overflow-x: hidden;                        
+  transition: 2.0s
+}
+
+/* Position of items in overlay */
+.overlayContent {
+  position: relative;
+  top: 25%; 
+  width: 100%; 
+  text-align: center; 
+  margin-top: 30px; 
+  font-size: 36px;
+  color: #818181;
+  display: block; 
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #818181;
+}
+
+/* Adjust font size of links and position the close button so that they do not overlap when height of screen < 460 pixels */
+@media screen and (max-height: 460px) {
+  .overlay a { 
+    font-size: 20px
+  }
+  
+  .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+  }
+} 
