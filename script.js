@@ -9,14 +9,20 @@ var remainingRow = [9,9,9,9,9,9,9,9,9]      // To keep track of remaining vacant
 var green = "green";
 var purple = "purple";
 var pink = "lightcoral";
-var color;
-var playerNum;
-var winner = false;
+var color;                                  // variable to store current color
+var playerNum;                              // variable to store current player's number
+var winner;                                 // boolean type to store status of winner   
+var prevRow;                                // variable to store prev row (for undo purposes)
+var prevCol;                                // variable to store prev col (for undo purposes)
+var newGame;                                // variable to track if game has started (for undo purposes)                    
+var undoLimitReached;                       // variable to limit undos at most once after each turn
 var defaultStartMessage = "Player 1 starts";
 var gameAlreadyOverMessage = "Game is already over! Press reset to restart the game";
-setInitialColorToPink();
+var undoLimitReachedMessage = "Sorry, you can only undo your previous turn once."
+var undoNotAvailableMessage = "It's a new game, there is nothing to undo!"
+setInitialSettings();
 
-function setInitialColorToPink() {
+function setInitialSettings() {
   for(var j=1; j<10; j++) { 
     for(var k=1; k<10; k++) {
       arr[j][k] = pink;
@@ -26,6 +32,8 @@ function setInitialColorToPink() {
   playerNum = 1;                            // Set default start number as Player 1
   color = purple;                           // Set default color as Purple
   winner = false;                           // Set default winner to false
+  undoLimitReached = false;                 // Set default undo limit to false;
+  newGame = true;                               
   remainingRow = [9,9,9,9,9,9,9,9,9]        // Set default vacancy as full 
   document.getElementById("status").innerHTML = defaultStartMessage;
 }
@@ -43,6 +51,10 @@ function add(value) {
     playerNum = (playerNum === 1) ? 2 : 1;                // Swaps player number
     remainingRow[value-1]--;                              // Updates vacancy in array
     document.getElementById("status").innerHTML = "Player " + playerNum + "'s turn";
+    prevRow = row;
+    prevCol = value;
+    undoLimitReached = false;
+    newGame = false;
   } else {
       alert(gameAlreadyOverMessage);
   }
@@ -176,8 +188,25 @@ function checkBottomLeftUp(row, col) {
 }
 
 function resetGame() {
-  setInitialColorToPink();
+  setInitialSettings();
   color = purple;
+}
+
+function undoTurn() {
+  if(newGame) {
+    alert(undoNotAvailableMessage);
+  } else if(undoLimitReached) {
+    alert(undoLimitReachedMessage);
+  } else {
+    document.getElementById(String(prevRow) + String(prevCol)).style.backgroundColor = pink; 
+    arr[prevRow][prevCol] = pink;
+    color = (color === purple) ? green : purple;          // Swaps Color
+    playerNum = (playerNum === 1) ? 2 : 1;                // Swaps player number
+    remainingRow[prevCol-1]++;                              // Updates vacancy in array
+    winner = false;
+    undoLimitReached = true;
+    document.getElementById("status").innerHTML = "Turn undo-ed. Player " + playerNum + "'s turn"; 
+  }
 }
 
 /* Opens the translucent overlay */

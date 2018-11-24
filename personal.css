@@ -2,38 +2,66 @@
   background: lightcyan;
 }
 
-.guide {
-  display: inline-block;
+.overallStructure {
+  width: 1400px;
   text-align: center;
-  vertical-align: 150px;
-  font-size: 30px;
+}
+
+.buttons {
+  display: inline-block;
+  text-align: right;
+  vertical-align: center;
+  height: 1500px;
+  width: 350px;
   margin: 0 auto;
-  padding: 50px;
+}
+
+.resetButton, .undoButton {
+  font-family: fantasy;
+  font-size: 30px;
+  background-color: greenyellow;
+  color: blueviolet;
+  text-align: center;
+}
+
+.undoButton {
+  margin-top: 280px ;
+  margin-bottom: 100px;
+}
+
+.mainBody {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
 }
 
 .heading {
-  font-size: 50px;
+  text-align: center;
+  font-size: 30px;
   font-family: fantasy;
+  margin-top: 0em;
+  margin-bottom: 0.5em;
 }
 
 .subheading {
-  font-size: 30px; 
+  font-size: 20px; 
   font-style: italic;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0em;
+  text-align: center;
 }
 
 #status {
   color: red;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.grid {
-  display: inline-block;
-  padding: 50px;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
 }
 
 .tableGrid {
-	width: 600px;
+	width: 500px;
 	margin: 0px auto;
 	table-layout: fixed;
   overflow: hidden;
@@ -41,31 +69,30 @@
 }
 
 table td {
-  height: 50px;
+  height: 40px;
   border: 5px solid black;
   background-color: lightcoral;
-  border-radius: 30px;
+  border-radius: 50px;
 }
 
 .buttonz {
 	width: 100%;
-  height: 50px;
+  height: 40px;
   font-family: fantasy;
   font-weight: bold;
   font-size: 20px;
   border-radius: 30px;
-  border:none;
+  border: none;
 	background-color: yellow;
 }
 
-.resetbutton {
-	font-family: fantasy;
-  font-size: 20px;
-  color: blueviolet;
-	margin:auto;
-  display:block;
-	padding: 10px;
-	border-radius: 10px;
+.resetButton:hover, .undoButton:hover {
+  cursor: pointer;
+}
+
+.invisible {
+  border: none;
+  background-color: lightcyan;
 }
 
  .overlay {
